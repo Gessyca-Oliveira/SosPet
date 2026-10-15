@@ -1,0 +1,32 @@
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { colors, DISPLAY } from '../theme';
+import { STATS } from '../config/constants';
+
+export default function Stats() {
+  return (
+    <View style={styles.card}>
+      <Text style={styles.title}>
+        Juntos, já <Text style={{ color: colors.orange }}>conseguimos:</Text>
+      </Text>
+
+      <View style={styles.grid}>
+        {STATS.map((stat) => (
+          <View key={stat.id} style={[styles.item, stat.highlight && { backgroundColor: colors.orange }]}>
+            <Text style={[styles.value, stat.highlight && { color: colors.dark }]}>{stat.value}</Text>
+            <Text style={[styles.label, stat.highlight && { color: colors.dark }]}>{stat.label}</Text>
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  card: { backgroundColor: colors.dark, borderRadius: 24, margin: 16, marginTop: 28, padding: 20 },
+  title: { fontFamily: DISPLAY, color: colors.white, fontSize: 26, fontWeight: '700', marginBottom: 14 },
+  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  item: { width: '48%', flexGrow: 1, backgroundColor: '#333', borderRadius: 14, padding: 14 },
+  value: { color: colors.white, fontFamily: DISPLAY, fontSize: 28, fontWeight: '700' },
+  label: { color: '#DDD', fontSize: 10, fontWeight: '700', marginTop: 4 },
+});
