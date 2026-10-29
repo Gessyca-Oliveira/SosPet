@@ -1,11 +1,8 @@
-// 👇 Troque pela chave Pix real da ONG
 export const PIX_KEY = 'sua-chave-pix-aqui';
 
-// 👇 Links externos (troque pelos reais)
 export const LINKS = {
-  instagram: 'https://instagram.com/SEU_PERFIL',
-  instagramCastracao: 'https://instagram.com/p/ID_DO_POST', // post ou destaque das castrações
-  whatsapp: 'https://wa.me/55DDDNUMERO', // só números: 55 + DDD + número
+  instagram: 'https://www.instagram.com/sospetbanabuiu/',
+  instagramHistória: 'https://www.instagram.com/sospetbanabuiu/reel/C4glGsNPMi8/',
 };
 
 export const NAV_ITEMS = [
@@ -17,7 +14,6 @@ export const NAV_ITEMS = [
 
 export const MARQUEE_WORDS = ['Alimentação', 'Resgate', 'Castração', 'Tratamento', 'Conscientização'];
 
-// Números tirados da história da ONG. Revise antes de publicar.
 export const STATS = [
   { id: 'rotas', value: '~100', label: 'Animais alcançados nas rotas', highlight: true },
   { id: 'castracoes', value: '~150', label: 'Castrados em mutirão' },
