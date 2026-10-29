@@ -5,6 +5,7 @@ import { Body, Eyebrow, Heading, Italic } from '../components/common/Typography'
 import Section from '../components/layout/Section';
 import useBreakpoint from '../hooks/useBreakpoint';
 import { BODY, colors, DISPLAY, DISPLAY_ITALIC } from '../theme';
+import { Eye, Shield } from '../components/common/Icons';
 
 function InfoCard({ icon, title, text, bg, titleColor, textColor, iconBg }) {
   return (
@@ -50,7 +51,7 @@ export default function About() {
 
         <View style={[styles.row, !isTablet && styles.rowStacked]}>
           <InfoCard
-            icon="🛡️"
+            icon={<Shield color={colors.dark} />}
             title="NOSSA MISSÃO"
             text="Proteger, cuidar e dar novas oportunidades a animais que precisam de ajuda."
             bg={colors.brown}
@@ -58,7 +59,7 @@ export default function About() {
             textColor={colors.white}
           />
           <InfoCard
-            icon="👁️"
+            icon={<Eye color={colors.orange} />}
             title="NOSSA VISÃO"
             text="Construir uma comunidade mais consciente e responsável com os animais."
             bg={colors.orange}

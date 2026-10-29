@@ -28,7 +28,7 @@ export default function Hero({ onNavigate }) {
         </Text>
 
         <View style={styles.buttons}>
-          <Button title="🐾 Quero ajudar agora" onPress={() => onNavigate('doar')} />
+          <Button title="Quero ajudar agora" icon="paw" onPress={() => onNavigate('doar')} />
           <Button title="Conheça a ONG" variant="ghost" onPress={() => onNavigate('sobre')} />
         </View>
 

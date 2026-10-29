@@ -5,6 +5,7 @@ export const LINKS = {
   instagramHistória: 'https://www.instagram.com/sospetbanabuiu/reel/C4glGsNPMi8/',
   instagramCastracao: 'https://www.instagram.com/p/C7Mef__u3lh/?xtok=MW52MjR3cGUzazgxZQ==',
   instragramRotas: 'https://www.instagram.com/s/aGlnaGxpZ2h0OjE3ODkxNjI3Njk2Njc3MTQ2?vrfl=MTJodW5sOHg2YWF6eA==',
+  localizacao: 'https://www.google.com/maps/@-5.303081,-38.9146079,15z?hl=pt-br&entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
 };
 
 export const NAV_ITEMS = [

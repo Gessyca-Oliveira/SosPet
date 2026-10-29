@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import { colors, CONTENT_MAX, DISPLAY, BODY_MEDIUM, BODY_SEMIBOLD, transition, focusStyle, lift } from '../../theme';
+import { useState } from 'react';
+import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { NAV_ITEMS } from '../../config/constants';
+import { BODY_MEDIUM, colors, CONTENT_MAX, DISPLAY, focusStyle, transition } from '../../theme';
+import Button from '../common/Button';
+import Logo from '../common/Logo';
 
 const COMPACT_BREAKPOINT = 640;
 
@@ -18,7 +20,7 @@ export default function Header({ onNavigate }) {
   return (
     <View style={styles.wrap}>
       <View style={styles.bar}>
-        <Text style={styles.logo}>SOS</Text>
+        <Logo height={36} />
         <View style={styles.row}>
           {!compact &&
             NAV_ITEMS.map((item) => (
@@ -34,19 +36,7 @@ export default function Header({ onNavigate }) {
                 )}
               </Pressable>
             ))}
-          <Pressable
-            style={({ hovered, focused }) => [
-              styles.cta,
-              transition,
-              hovered && styles.ctaHover,
-              hovered && lift,
-              focusStyle(focused),
-            ]}
-            onPress={() => go('doar')}
-            accessibilityRole="button"
-          >
-            <Text style={styles.ctaText}>🐾 Quero doar</Text>
-          </Pressable>
+          <Button title="Quero doar" icon="paw" onPress={() => go('doar')} style={styles.cta} />
           {compact && (
             <Pressable
               onPress={() => setOpen((v) => !v)}
@@ -107,9 +97,7 @@ const styles = StyleSheet.create({
   linkBox: { paddingVertical: 6, borderRadius: 6 },
   link: { fontFamily: BODY_MEDIUM, fontSize: 14, color: colors.dark },
   linkHover: { color: colors.red, textDecorationLine: 'underline' },
-  ctaHover: { backgroundColor: colors.redDark },
-  cta: { backgroundColor: colors.red, borderRadius: 999, paddingHorizontal: 14, paddingVertical: 9 },
-  ctaText: { fontFamily: BODY_SEMIBOLD, color: colors.white, fontSize: 13 },
+  cta: { paddingHorizontal: 16, paddingVertical: 8, minHeight: 40 },
   menuBtn: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center', marginRight: -8 },
   menuIcon: { fontSize: 22, color: colors.dark },
   menu: { width: '100%', maxWidth: CONTENT_MAX, alignSelf: 'center', marginTop: 8, backgroundColor: colors.white, borderRadius: 20, paddingVertical: 6, elevation: 3, shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 6, shadowOffset: { width: 0, height: 2 } },
