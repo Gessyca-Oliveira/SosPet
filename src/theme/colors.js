@@ -4,6 +4,7 @@ export const colors = {
   cream: '#FFF3E4',
   orange: '#F1A550',
   red: '#CB1A32',
+  redDark: '#A8152A',
   white: '#FFFFFF',
 
   // Tons de apoio

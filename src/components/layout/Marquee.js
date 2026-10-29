@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { AccessibilityInfo, Animated, Easing, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Animated, Easing, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { colors, DISPLAY } from '../../theme';
 import { MARQUEE_WORDS } from '../../config/constants';
 
@@ -19,8 +19,9 @@ export default function Marquee() {
   const x = useRef(new Animated.Value(0)).current;
   const [groupWidth, setGroupWidth] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const { width } = useWindowDimensions();
+  const copies = groupWidth ? Math.ceil(width / groupWidth) + 1 : 2;
 
-  // Respeita a opção "reduzir movimento" do celular
   useEffect(() => {
     AccessibilityInfo.isReduceMotionEnabled().then(setReduceMotion).catch(() => {});
     const sub = AccessibilityInfo.addEventListener('reduceMotionChanged', setReduceMotion);
@@ -43,14 +44,15 @@ export default function Marquee() {
         <View onLayout={(e) => !groupWidth && setGroupWidth(e.nativeEvent.layout.width)}>
           <Group />
         </View>
-        <Group />
-        <Group />
+        {Array.from({ length: copies }, (_, i) => (
+          <Group key={i} />
+        ))}
       </Animated.View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  band: { backgroundColor: colors.red, paddingVertical: 10, overflow: 'hidden', transform: [{ rotate: '-1deg' }] },
-  text: { color: colors.white, fontFamily: DISPLAY, fontSize: 19 },
+  band: { backgroundColor: colors.red, paddingVertical: 12, marginHorizontal: -24, overflow: 'hidden', transform: [{ rotate: '-1deg' }] },
+  text: { color: colors.white, fontFamily: DISPLAY, fontSize: 22 },
 });

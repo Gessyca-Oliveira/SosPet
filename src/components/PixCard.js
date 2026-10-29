@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
-import { colors, DISPLAY, BODY, BODY_SEMIBOLD } from '../theme';
+import { colors, DISPLAY, BODY, BODY_SEMIBOLD, transition, focusStyle } from '../theme';
 import { images } from '../assets/images';
 import { PIX_KEY } from '../config/constants';
 
@@ -41,7 +41,13 @@ export default function PixCard() {
       <View style={styles.row}>
         <TextInput value={PIX_KEY} editable={false} style={styles.input} accessibilityLabel="Chave Pix" />
         <Pressable
-          style={[styles.copyBtn, copied && { backgroundColor: colors.green }]}
+          style={({ hovered, focused }) => [
+            styles.copyBtn,
+            transition,
+            hovered && { backgroundColor: colors.brown },
+            copied && { backgroundColor: colors.green },
+            focusStyle(focused),
+          ]}
           onPress={copy}
           accessibilityRole="button"
           accessibilityLabel={copied ? 'Chave Pix copiada' : 'Copiar chave Pix'}
@@ -54,7 +60,7 @@ export default function PixCard() {
 }
 
 const styles = StyleSheet.create({
-  card: { backgroundColor: colors.cream, borderRadius: 22, padding: 20, marginTop: 26, alignItems: 'center' },
+  card: { backgroundColor: colors.cream, borderRadius: 28, padding: 24, alignItems: 'center' },
   title: { fontFamily: DISPLAY, fontSize: 30, color: colors.dark },
   qr: { width: 160, height: 160, backgroundColor: colors.white, borderWidth: 1, borderColor: colors.border, alignItems: 'center', justifyContent: 'center', marginVertical: 16 },
   qrImg: { width: '100%', height: '100%' },

@@ -1,6 +1,6 @@
 // src/app/index.tsx
 import React, { useCallback, useRef } from 'react';
-import { LayoutChangeEvent, ScrollView, StatusBar, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { LayoutChangeEvent, ScrollView, StatusBar, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors } from '../theme';
@@ -9,11 +9,7 @@ import Marquee from '../components/layout/Marquee';
 import Footer from '../components/layout/Footer';
 import { Hero, Stats, About, History, Actions, Donate } from '../sections';
 
-const HEADER_OFFSET = 70;
-
 export default function HomeScreen() {
-  const { width } = useWindowDimensions();
-
   const scrollRef = useRef<ScrollView>(null);
   const positions = useRef<Record<string, number>>({});
 
@@ -22,8 +18,10 @@ export default function HomeScreen() {
   };
 
   const scrollTo = useCallback((key: string) => {
+    // O Header fica fora do ScrollView, então a posição da seção já é o ponto exato:
+    // descontar a altura do header fazia aparecer o fim da seção anterior.
     const y = positions.current[key] ?? 0;
-    scrollRef.current?.scrollTo({ y: Math.max(y - HEADER_OFFSET, 0), animated: true });
+    scrollRef.current?.scrollTo({ y, animated: true });
   }, []);
 
   return (
@@ -31,11 +29,9 @@ export default function HomeScreen() {
       <StatusBar barStyle="dark-content" backgroundColor={colors.cream} />
       <Header onNavigate={scrollTo} />
 
-      <ScrollView
-        ref={scrollRef}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ alignSelf: 'center', width: Math.min(width, 720) }}
-      >
+      {/* Conteúdo em largura total: cada seção pinta o fundo de ponta a ponta
+          e centraliza o próprio conteúdo (ver components/layout/Section) */}
+      <ScrollView ref={scrollRef} showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
         <View onLayout={registerSection('inicio')}>
           <Hero onNavigate={scrollTo} />
         </View>
@@ -67,4 +63,5 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.cream },
+  content: { flexGrow: 1, width: '100%', overflow: 'hidden' },
 });

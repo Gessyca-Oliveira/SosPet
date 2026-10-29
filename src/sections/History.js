@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { LayoutAnimation, Linking, Platform, Pressable, StyleSheet, Text, UIManager, View } from 'react-native';
-import { colors, DISPLAY, DISPLAY_ITALIC, BODY, BODY_MEDIUM, BODY_SEMIBOLD } from '../theme';
+import { colors, DISPLAY, DISPLAY_ITALIC, BODY, BODY_MEDIUM, BODY_SEMIBOLD, transition, focusStyle } from '../theme';
 import Photo from '../components/common/Photo';
 import Button from '../components/common/Button';
+import Section from '../components/layout/Section';
+import useBreakpoint from '../hooks/useBreakpoint';
 import { Body, Eyebrow, Heading } from '../components/common/Typography';
 import { LINKS } from '../config/constants';
 import {
@@ -33,9 +35,11 @@ function ExternalLink({ label, url }) {
       accessibilityRole="link"
       accessibilityHint="Abre em outro aplicativo"
       hitSlop={8}
-      style={({ pressed }) => [styles.link, pressed && { opacity: 0.6 }]}
+      style={({ pressed, focused }) => [styles.link, pressed && { opacity: 0.6 }, focusStyle(focused)]}
     >
-      <Text style={styles.linkText}>{label} ↗</Text>
+      {({ hovered }) => (
+        <Text style={[styles.linkText, transition, hovered && { color: colors.brown }]}>{label} ↗</Text>
+      )}
     </Pressable>
   );
 }
@@ -76,6 +80,7 @@ function TimelineItem({ item, isLast }) {
 }
 
 export default function History() {
+  const { isDesktop } = useBreakpoint();
   const [expanded, setExpanded] = useState(false);
 
   const toggle = () => {
@@ -83,83 +88,113 @@ export default function History() {
     setExpanded((v) => !v);
   };
 
-  return (
-    <View style={styles.section}>
-      <Eyebrow>NOSSA HISTÓRIA</Eyebrow>
-      <Heading>NADA COMEÇA DO ZERO.</Heading>
-      <Body>{HISTORY_INTRO}</Body>
-
-      <View style={styles.origin}>
-        <Photo source={HISTORY_ORIGIN.image} style={styles.originImg} emoji="👭" bg={colors.photoBg} alt={HISTORY_ORIGIN.alt} />
-        <Text style={styles.originCaption}>{HISTORY_ORIGIN.caption}</Text>
-        <Text style={styles.originText}>{HISTORY_ORIGIN.text}</Text>
-      </View>
-
-      <View style={styles.quoteCard}>
-        <View style={styles.quoteHead}>
-          <Photo source={HISTORY_QUOTE.image} style={styles.aisha} emoji="🐶" bg={colors.cream} alt={HISTORY_QUOTE.alt} />
-          <Text style={styles.quoteContext}>{HISTORY_QUOTE.context}</Text>
+  const extras = (
+    <>
+        <View style={styles.note}>
+          <Text style={styles.noteTitle}>Por que “cerca de 100 animais”?</Text>
+          <Text style={styles.noteText}>{HISTORY_NOTE}</Text>
         </View>
-        <Text style={styles.quote}>“{HISTORY_QUOTE.quote}”</Text>
-      </View>
 
-      <View style={styles.timeline}>
-        {HISTORY_TIMELINE.map((item, i) => (
-          <TimelineItem key={item.id} item={item} isLast={i === HISTORY_TIMELINE.length - 1} />
-        ))}
-      </View>
-
-      <View style={styles.note}>
-        <Text style={styles.noteTitle}>Por que “cerca de 100 animais”?</Text>
-        <Text style={styles.noteText}>{HISTORY_NOTE}</Text>
-      </View>
-
-      <Text style={styles.groupTitle}>Quem construiu essa história</Text>
-      <View style={styles.chips}>
-        {HISTORY_PEOPLE.map((p) => (
-          <View key={p} style={styles.chip}>
-            <Text style={styles.chipText}>{p}</Text>
+        <Text style={styles.groupTitle}>Quem construiu essa história</Text>
+        <View style={styles.chips}>
+          {HISTORY_PEOPLE.map((p) => (
+            <View key={p} style={styles.chip}>
+              <Text style={styles.chipText}>{p}</Text>
+            </View>
+          ))}
+          <View style={styles.chip}>
+            <Text style={styles.chipText}>e muitas outras voluntárias</Text>
           </View>
-        ))}
-        <View style={styles.chip}>
-          <Text style={styles.chipText}>e muitas outras voluntárias</Text>
         </View>
-      </View>
 
-      <Text style={styles.groupTitle}>Parceiros</Text>
-      <View style={styles.chips}>
-        {HISTORY_PARTNERS.map((p) => (
-          <View key={p} style={[styles.chip, styles.chipPartner]}>
-            <Text style={[styles.chipText, { color: colors.white }]}>{p}</Text>
-          </View>
-        ))}
-      </View>
-
-      {expanded && (
-        <View style={styles.full}>
-          {HISTORY_FULL.map((p, i) => (
-            <Text key={i} style={styles.fullText}>
-              {p}
-            </Text>
+        <Text style={styles.groupTitle}>Parceiros</Text>
+        <View style={styles.chips}>
+          {HISTORY_PARTNERS.map((p) => (
+            <View key={p} style={[styles.chip, styles.chipPartner]}>
+              <Text style={[styles.chipText, { color: colors.white }]}>{p}</Text>
+            </View>
           ))}
         </View>
-      )}
-      <Pressable
-        onPress={toggle}
-        accessibilityRole="button"
-        accessibilityState={{ expanded }}
-        style={({ pressed }) => [styles.more, pressed && { opacity: 0.7 }]}
-      >
-        <Text style={styles.moreText}>{expanded ? 'Mostrar menos' : 'Ler a história completa'}</Text>
-      </Pressable>
+    </>
+  );
 
-      <Text style={styles.closing}>{HISTORY_CLOSING}</Text>
+  return (
+    <Section bg={colors.cream} innerStyle={isDesktop && styles.innerDesktop}>
+      {/* Coluna 1: abertura, origem e a reflexão da Aisha */}
+      <View style={isDesktop && styles.colLeft}>
+        <Eyebrow>NOSSA HISTÓRIA</Eyebrow>
+        <Heading>NADA COMEÇA DO ZERO.</Heading>
+        <Body>{HISTORY_INTRO}</Body>
 
-      <View style={styles.ctaRow}>
-        <Button title="Acompanhe no Instagram" onPress={() => openLink(LINKS.instagram)} />
-        <Button title="Fale no WhatsApp" variant="ghost" onPress={() => openLink(LINKS.whatsapp)} />
+        <View style={styles.origin}>
+          <Photo
+            source={HISTORY_ORIGIN.image}
+            style={[styles.originImg, isDesktop && { height: 280 }]}
+            emoji="👭"
+            bg={colors.photoBg}
+            alt={HISTORY_ORIGIN.alt}
+          />
+          <Text style={styles.originCaption}>{HISTORY_ORIGIN.caption}</Text>
+          <Text style={styles.originText}>{HISTORY_ORIGIN.text}</Text>
+        </View>
+
+        <View style={styles.quoteCard}>
+          <View style={styles.quoteHead}>
+            <Photo source={HISTORY_QUOTE.image} style={styles.aisha} emoji="🐶" bg={colors.cream} alt={HISTORY_QUOTE.alt} />
+            <Text style={styles.quoteContext}>{HISTORY_QUOTE.context}</Text>
+          </View>
+          <Text style={[styles.quote, isDesktop && { fontSize: 32, lineHeight: 38 }]}>“{HISTORY_QUOTE.quote}”</Text>
+        </View>
+
+        {isDesktop && extras}
       </View>
-    </View>
+
+      {/* Coluna 2: linha do tempo, pessoas e fechamento */}
+      <View style={isDesktop ? styles.colRight : null}>
+        <View style={[styles.timeline, isDesktop && { marginTop: 0 }]}>
+          {HISTORY_TIMELINE.map((item, i) => (
+            <TimelineItem key={item.id} item={item} isLast={i === HISTORY_TIMELINE.length - 1} />
+          ))}
+        </View>
+
+        {!isDesktop && extras}
+
+        {expanded && (
+          <View style={styles.full}>
+            {HISTORY_FULL.map((p, i) => (
+              <Text key={i} style={styles.fullText}>
+                {p}
+              </Text>
+            ))}
+          </View>
+        )}
+        <Pressable
+          onPress={toggle}
+          accessibilityRole="button"
+          accessibilityState={{ expanded }}
+          style={({ pressed, hovered, focused }) => [
+            styles.more,
+            transition,
+            hovered && { backgroundColor: colors.dark },
+            pressed && { opacity: 0.7 },
+            focusStyle(focused),
+          ]}
+        >
+          {({ hovered }) => (
+            <Text style={[styles.moreText, transition, hovered && { color: colors.white }]}>
+              {expanded ? 'Mostrar menos' : 'Ler a história completa'}
+            </Text>
+          )}
+        </Pressable>
+
+        <Text style={styles.closing}>{HISTORY_CLOSING}</Text>
+
+        <View style={styles.ctaRow}>
+          <Button title="Acompanhe no Instagram" onPress={() => openLink(LINKS.instagram)} />
+          <Button title="Fale no WhatsApp" variant="ghost" onPress={() => openLink(LINKS.whatsapp)} />
+        </View>
+      </View>
+    </Section>
   );
 }
 
@@ -169,7 +204,9 @@ const hardShadow = Platform.select({
 });
 
 const styles = StyleSheet.create({
-  section: { paddingHorizontal: 20, paddingVertical: 32 },
+  innerDesktop: { flexDirection: 'row', alignItems: 'flex-start', gap: 64 },
+  colLeft: { flex: 1 },
+  colRight: { flex: 1.1, paddingTop: 12 },
 
   origin: { marginTop: 22, backgroundColor: colors.white, borderRadius: 20, padding: 12 },
   originImg: { width: '100%', height: 200, borderRadius: 14 },
@@ -200,7 +237,7 @@ const styles = StyleSheet.create({
   link: { alignSelf: 'flex-start', marginTop: 12, paddingVertical: 6 },
   linkText: { fontFamily: BODY_SEMIBOLD, fontSize: 14, color: colors.red, textDecorationLine: 'underline' },
 
-  note: { backgroundColor: colors.white, borderRadius: 16, padding: 16, borderLeftWidth: 4, borderLeftColor: colors.orange },
+  note: { marginTop: 24, backgroundColor: colors.white, borderRadius: 16, padding: 16, borderLeftWidth: 4, borderLeftColor: colors.orange },
   noteTitle: { fontFamily: BODY_SEMIBOLD, fontSize: 15, color: colors.dark },
   noteText: { fontFamily: BODY, fontSize: 14, lineHeight: 21, color: colors.text, marginTop: 6 },
 
