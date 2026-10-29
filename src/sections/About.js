@@ -1,11 +1,11 @@
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, DISPLAY, DISPLAY_ITALIC, BODY } from '../theme';
 import { images } from '../assets/images';
 import Photo from '../components/common/Photo';
-import Section from '../components/layout/Section';
 import { Body, Eyebrow, Heading, Italic } from '../components/common/Typography';
+import Section from '../components/layout/Section';
 import useBreakpoint from '../hooks/useBreakpoint';
+import { BODY, colors, DISPLAY, DISPLAY_ITALIC } from '../theme';
+import { Eye, Shield } from '../components/common/Icons';
 
 function InfoCard({ icon, title, text, bg, titleColor, textColor, iconBg }) {
   return (
@@ -44,14 +44,14 @@ export default function About() {
           GENTE COMUM FAZENDO UM TRABALHO <Italic>EXTRAORDINÁRIO.</Italic>
         </Heading>
         <Body>
-          A SOS Pet Banabuiú atua desde 2018 e, juntos, já conseguimos mudar a vida de mais de 500
+          A SOS Pet Banabuiú atua desde 2013 e, juntos, já conseguimos mudar a vida de mais de 500
           animais em situação de rua. Venha fazer parte e ajude a mudar a vida desses seres que só
           sabem amar!
         </Body>
 
         <View style={[styles.row, !isTablet && styles.rowStacked]}>
           <InfoCard
-            icon="🛡️"
+            icon={<Shield color={colors.dark} />}
             title="NOSSA MISSÃO"
             text="Proteger, cuidar e dar novas oportunidades a animais que precisam de ajuda."
             bg={colors.brown}
@@ -59,7 +59,7 @@ export default function About() {
             textColor={colors.white}
           />
           <InfoCard
-            icon="👁️"
+            icon={<Eye color={colors.orange} />}
             title="NOSSA VISÃO"
             text="Construir uma comunidade mais consciente e responsável com os animais."
             bg={colors.orange}

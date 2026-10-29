@@ -4,6 +4,7 @@ import { colors, DISPLAY, BODY, BODY_MEDIUM, BODY_SEMIBOLD, transition, focusSty
 import { LINKS } from '../../config/constants';
 import Section from './Section';
 import useBreakpoint from '../../hooks/useBreakpoint';
+import Logo from '../common/Logo';
 
 function FooterLink({ label, url }) {
   return (
@@ -27,16 +28,14 @@ export default function Footer() {
     <Section bg={colors.dark} style={{ paddingBottom: 28 }}>
       <View style={[styles.top, isDesktop && styles.topDesktop]}>
         <View>
-          <Text style={[styles.logo, isDesktop && { fontSize: 72, lineHeight: 74 }]}>SOS</Text>
-          <Text style={styles.sub}>BANABUIÚ - CE</Text>
+          <Logo height={isDesktop ? 102 : 72} />
         </View>
 
         <View style={styles.contact}>
           <Text style={styles.title}>Contato</Text>
           <FooterLink label="Instagram" url={LINKS.instagram} />
-          <FooterLink label="WhatsApp" url={LINKS.whatsapp} />
-          <Text style={styles.text}>CNPJ:</Text>
-          <Text style={styles.text}>Localização: Banabuiú - CE</Text>
+          <Text style={styles.text}>CNPJ: 49.385.963/0001-40</Text>
+          <FooterLink label="Localização: Banabuiú - CE" url={LINKS.localizacao} />
         </View>
       </View>
 

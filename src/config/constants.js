@@ -3,6 +3,9 @@ export const PIX_KEY = 'sua-chave-pix-aqui';
 export const LINKS = {
   instagram: 'https://www.instagram.com/sospetbanabuiu/',
   instagramHistória: 'https://www.instagram.com/sospetbanabuiu/reel/C4glGsNPMi8/',
+  instagramCastracao: 'https://www.instagram.com/p/C7Mef__u3lh/?xtok=MW52MjR3cGUzazgxZQ==',
+  instragramRotas: 'https://www.instagram.com/s/aGlnaGxpZ2h0OjE3ODkxNjI3Njk2Njc3MTQ2?vrfl=MTJodW5sOHg2YWF6eA==',
+  localizacao: 'https://www.google.com/maps/@-5.303081,-38.9146079,15z?hl=pt-br&entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D',
 };
 
 export const NAV_ITEMS = [
@@ -15,10 +18,10 @@ export const NAV_ITEMS = [
 export const MARQUEE_WORDS = ['Alimentação', 'Resgate', 'Castração', 'Tratamento', 'Conscientização'];
 
 export const STATS = [
-  { id: 'rotas', value: '~100', label: 'Animais alcançados nas rotas', highlight: true },
-  { id: 'castracoes', value: '~150', label: 'Castrados em mutirão' },
-  { id: 'atendimentos', value: '~5', label: 'Atendimentos por mês' },
-  { id: 'rotas-desde', value: '2019', label: 'Rotas diárias desde' },
+  { id: 'rotas', value: '100', label: 'Animais alcançados nas rotas', highlight: true, arrow: true },
+  { id: 'castracoes', value: '150', label: 'Castrados em mutirão', arrow: true },
+  { id: 'atendimentos', value: '5', label: 'Atendimentos por mês', arrow: true },
+  { id: 'rotas-desde', value: '2013', label: 'Rotas diárias desde' },
 ];
 
 export const DONATE_STEPS = [

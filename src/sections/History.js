@@ -103,24 +103,14 @@ export default function History() {
             </View>
           ))}
           <View style={styles.chip}>
-            <Text style={styles.chipText}>e muitas outras voluntárias</Text>
+            <Text style={styles.chipText}>e outras voluntárias</Text>
           </View>
-        </View>
-
-        <Text style={styles.groupTitle}>Parceiros</Text>
-        <View style={styles.chips}>
-          {HISTORY_PARTNERS.map((p) => (
-            <View key={p} style={[styles.chip, styles.chipPartner]}>
-              <Text style={[styles.chipText, { color: colors.white }]}>{p}</Text>
-            </View>
-          ))}
         </View>
     </>
   );
 
   return (
     <Section bg={colors.cream} innerStyle={isDesktop && styles.innerDesktop}>
-      {/* Coluna 1: abertura, origem e a reflexão da Aisha */}
       <View style={isDesktop && styles.colLeft}>
         <Eyebrow>NOSSA HISTÓRIA</Eyebrow>
         <Heading>NADA COMEÇA DO ZERO.</Heading>
@@ -149,7 +139,6 @@ export default function History() {
         {isDesktop && extras}
       </View>
 
-      {/* Coluna 2: linha do tempo, pessoas e fechamento */}
       <View style={isDesktop ? styles.colRight : null}>
         <View style={[styles.timeline, isDesktop && { marginTop: 0 }]}>
           {HISTORY_TIMELINE.map((item, i) => (
@@ -191,7 +180,6 @@ export default function History() {
 
         <View style={styles.ctaRow}>
           <Button title="Acompanhe no Instagram" onPress={() => openLink(LINKS.instagram)} />
-          <Button title="Fale no WhatsApp" variant="ghost" onPress={() => openLink(LINKS.whatsapp)} />
         </View>
       </View>
     </Section>
