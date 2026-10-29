@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors } from '../theme';
+import { colors, BODY_MEDIUM, BODY_SEMIBOLD } from '../theme';
 import { DONATE_STEPS } from '../config/constants';
 import { Body, Eyebrow, Heading } from '../components/common/Typography';
 import PixCard from '../components/PixCard';
@@ -31,8 +31,8 @@ export default function Donate() {
 
 const styles = StyleSheet.create({
   wrap: { backgroundColor: colors.brown, padding: 20, paddingVertical: 28 },
-  step: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 12 },
-  num: { width: 22, height: 22, borderRadius: 11, backgroundColor: colors.orange, alignItems: 'center', justifyContent: 'center' },
-  numText: { fontSize: 11, fontWeight: '800', color: colors.dark },
-  stepText: { color: colors.white, fontSize: 12, fontWeight: '600', flex: 1 },
+  step: { flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 14 },
+  num: { width: 28, height: 28, borderRadius: 14, backgroundColor: colors.orange, alignItems: 'center', justifyContent: 'center' },
+  numText: { fontFamily: BODY_SEMIBOLD, fontSize: 14, color: colors.dark },
+  stepText: { fontFamily: BODY_MEDIUM, color: colors.white, fontSize: 15, lineHeight: 21, flex: 1 },
 });

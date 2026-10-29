@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors } from '../theme';
+import { colors, BODY } from '../theme';
 import { images } from '../assets/images';
 import Photo from '../components/common/Photo';
 import { Eyebrow, Heading } from '../components/common/Typography';
@@ -27,7 +27,7 @@ export default function Actions() {
       <View style={styles.list}>
         {ACTIONS.map((a) => (
           <View key={a.id} style={[styles.card, { backgroundColor: a.bg }]}>
-            <Photo source={a.image} style={styles.image} emoji={a.emoji} bg="#E8D5BF" />
+            <Photo source={a.image} style={styles.image} emoji={a.emoji} bg={colors.photoBg} alt={a.alt} />
             <Text style={[styles.text, { color: a.color }]}>{a.text}</Text>
           </View>
         ))}
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   titleRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' },
   mascot: { width: 90, height: 90, borderRadius: 45 },
   list: { marginTop: 20, gap: 14 },
-  card: { borderRadius: 14, padding: 12, alignItems: 'center' },
-  image: { width: '100%', height: 170, borderRadius: 8 },
-  text: { fontSize: 12, textAlign: 'center', lineHeight: 17, marginTop: 10, paddingHorizontal: 6, fontStyle: 'italic' },
+  card: { borderRadius: 16, padding: 12, paddingBottom: 16, alignItems: 'center' },
+  image: { width: '100%', height: 190, borderRadius: 10 },
+  text: { fontFamily: BODY, fontSize: 15, textAlign: 'center', lineHeight: 22, marginTop: 12, paddingHorizontal: 6 },
 });
