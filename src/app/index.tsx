@@ -1,3 +1,4 @@
+// src/app/index.tsx
 import React, { useCallback, useRef } from 'react';
 import { LayoutChangeEvent, ScrollView, StatusBar, StyleSheet, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -6,7 +7,7 @@ import { colors } from '../theme';
 import Header from '../components/layout/Header';
 import Marquee from '../components/layout/Marquee';
 import Footer from '../components/layout/Footer';
-import { Hero, Stats, About, Actions, Donate } from '../sections';
+import { Hero, Stats, About, History, Actions, Donate } from '../sections';
 
 const HEADER_OFFSET = 70;
 
@@ -44,6 +45,10 @@ export default function HomeScreen() {
 
         <View onLayout={registerSection('sobre')}>
           <About />
+        </View>
+
+        <View onLayout={registerSection('historia')}>
+          <History />
         </View>
 
         <View onLayout={registerSection('acoes')}>

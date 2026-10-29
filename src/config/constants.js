@@ -1,9 +1,17 @@
 // 👇 Troque pela chave Pix real da ONG
 export const PIX_KEY = 'sua-chave-pix-aqui';
 
+// 👇 Links externos (troque pelos reais)
+export const LINKS = {
+  instagram: 'https://instagram.com/SEU_PERFIL',
+  instagramCastracao: 'https://instagram.com/p/ID_DO_POST', // post ou destaque das castrações
+  whatsapp: 'https://wa.me/55DDDNUMERO', // só números: 55 + DDD + número
+};
+
 export const NAV_ITEMS = [
   { key: 'inicio', label: 'Início' },
   { key: 'sobre', label: 'Sobre nós' },
+  { key: 'historia', label: 'História' },
   { key: 'acoes', label: 'Ações' },
 ];
 
