@@ -7,13 +7,14 @@ export const NAV_ITEMS = [
   { key: 'acoes', label: 'Ações' },
 ];
 
-export const MARQUEE_WORDS = ['Alimentação', 'Novo lar', 'Restate', 'Castração', 'Tratamento'];
+export const MARQUEE_WORDS = ['Alimentação', 'Resgate', 'Castração', 'Tratamento', 'Conscientização'];
 
+// Números tirados da história da ONG. Revise antes de publicar.
 export const STATS = [
-  { id: 'alimentados', value: '+ 500', label: 'Animais que alimentamos', highlight: true },
-  { id: 'resgates', value: '+ 500', label: 'Resgates realizados' },
-  { id: 'tratamentos', value: '+ 500', label: 'Tratamentos' },
-  { id: 'castracoes', value: '+ 500', label: 'Castrações' },
+  { id: 'rotas', value: '~100', label: 'Animais alcançados nas rotas', highlight: true },
+  { id: 'castracoes', value: '~150', label: 'Castrados em mutirão' },
+  { id: 'atendimentos', value: '~5', label: 'Atendimentos por mês' },
+  { id: 'rotas-desde', value: '2019', label: 'Rotas diárias desde' },
 ];
 
 export const DONATE_STEPS = [

@@ -6,9 +6,9 @@ import Photo from '../components/common/Photo';
 import { Eyebrow, Heading } from '../components/common/Typography';
 
 const ACTIONS = [
-  { id: 'comida', image: images.acao1, emoji: '🍲', bg: colors.cream, color: colors.brown, text: 'Ajude a garantir comida para animais resgatados.' },
-  { id: 'lar', image: images.acao2, emoji: '🏠', bg: colors.brown, color: colors.cream, text: 'Contribua para que eles possam se recuperar e encontrar um novo lar.' },
-  { id: 'saude', image: images.acao3, emoji: '💊', bg: colors.cream, color: colors.brown, text: 'Contribua para consultas, medicamentos e procedimentos.' },
+  { id: 'comida', image: images.acao1, emoji: '🍲', bg: colors.cream, color: colors.brown, alt: 'Comedouro em rota de alimentação', text: 'Garante ração nas rotas de alimentação, que percorrem a cidade todos os dias.' },
+  { id: 'resgate', image: images.acao2, emoji: '🚑', bg: colors.brown, color: colors.cream, alt: 'Cachorro resgatado se recuperando', text: 'Ajuda nos resgates e na recuperação de animais em situação grave.' },
+  { id: 'saude', image: images.acao3, emoji: '💊', bg: colors.cream, color: colors.brown, alt: 'Cachorro em atendimento veterinário', text: 'Contribui para consultas, medicamentos, antiparasitários e castrações.' },
 ];
 
 export default function Actions() {
