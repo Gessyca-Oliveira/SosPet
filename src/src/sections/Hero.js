@@ -1,11 +1,10 @@
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, DISPLAY, DISPLAY_ITALIC, BODY, BODY_MEDIUM, BODY_SEMIBOLD } from '../theme';
 import { images } from '../assets/images';
 import Button from '../components/common/Button';
 import Photo from '../components/common/Photo';
 import Section from '../components/layout/Section';
 import useBreakpoint from '../hooks/useBreakpoint';
+import { BODY, BODY_MEDIUM, BODY_SEMIBOLD, colors, DISPLAY, DISPLAY_ITALIC } from '../theme';
 
 export default function Hero({ onNavigate }) {
   const { isDesktop } = useBreakpoint();
@@ -14,7 +13,7 @@ export default function Hero({ onNavigate }) {
     <Section bg={colors.cream} innerStyle={[styles.inner, isDesktop && styles.innerDesktop]}>
       <View style={[styles.textCol, isDesktop && styles.textColDesktop]}>
         <View style={styles.badge}>
-          <Text style={styles.badgeText}>🐾 PROTEGENDO OS ANIMAIS DESDE 2018</Text>
+          <Text style={styles.badgeText}>🐾 PROTEGENDO OS ANIMAIS DESDE 2013</Text>
         </View>
 
         <Text style={[styles.h1, isDesktop && styles.h1Desktop]} accessibilityRole="header">

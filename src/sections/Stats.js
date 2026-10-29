@@ -4,6 +4,7 @@ import { colors, DISPLAY, BODY_MEDIUM } from '../theme';
 import { STATS } from '../config/constants';
 import Section from '../components/layout/Section';
 import useBreakpoint from '../hooks/useBreakpoint';
+import ArrowUp from '../components/common/ArrowUp';
 
 export default function Stats() {
   const { isDesktop } = useBreakpoint();
@@ -17,20 +18,28 @@ export default function Stats() {
 
         <View style={styles.grid}>
           {STATS.map((stat) => (
-            <View
-              key={stat.id}
-              style={[
-                styles.item,
-                { flexBasis: isDesktop ? '22%' : '45%' },
-                stat.highlight && { backgroundColor: colors.orange },
-              ]}
-            >
-              <Text style={[styles.value, isDesktop && styles.valueDesktop, stat.highlight && { color: colors.dark }]}>
-                {stat.value}
-              </Text>
-              <Text style={[styles.label, stat.highlight && { color: colors.dark }]}>{stat.label}</Text>
-            </View>
-          ))}
+        <View
+          key={stat.id}
+          style={[
+            styles.item,
+            { flexBasis: isDesktop ? '22%' : '45%' },
+            stat.highlight && { backgroundColor: colors.orange },
+          ]}
+        >
+          <View style={styles.valueRow}>
+            {stat.arrow && (
+              <ArrowUp
+                size={isDesktop ? 44 : 30}
+                color={stat.highlight ? colors.dark : colors.orange}
+              />
+            )}
+            <Text style={[styles.value, isDesktop && styles.valueDesktop, stat.highlight && { color: colors.dark }]}>
+              {stat.value}
+            </Text>
+          </View>
+          <Text style={[styles.label, stat.highlight && { color: colors.dark }]}>{stat.label}</Text>
+        </View>
+        ))}
         </View>
       </View>
     </Section>
@@ -42,6 +51,7 @@ const styles = StyleSheet.create({
   cardDesktop: { borderRadius: 36, paddingVertical: 48, paddingHorizontal: 44 },
   title: { fontFamily: DISPLAY, color: colors.white, fontSize: 32, lineHeight: 36, marginBottom: 16 },
   titleDesktop: { fontSize: 52, lineHeight: 56, marginBottom: 28 },
+  valueRow: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   item: { flexGrow: 1, backgroundColor: colors.darkCard, borderRadius: 18, padding: 18, minHeight: 120, justifyContent: 'space-between' },
   value: { color: colors.white, fontFamily: DISPLAY, fontSize: 38, lineHeight: 42 },

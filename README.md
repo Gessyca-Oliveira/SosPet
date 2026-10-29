@@ -1,6 +1,6 @@
 # 🐾 SOS Pet Banabuiú
 
-Aplicativo mobile (React Native + Expo) da ONG **SOS Pet Banabuiú**, que resgata, trata e castra animais em situação de rua em Banabuiú - CE desde 2018.
+Aplicativo mobile (React Native + Expo) da ONG **SOS Pet Banabuiú**, que resgata, trata e castra animais em situação de rua em Banabuiú - CE desde 2013.
 
 O app é a versão mobile da landing page da ONG e tem um objetivo principal: **apresentar o trabalho da organização e facilitar doações via Pix**.
 
@@ -155,7 +155,7 @@ Preencha Instagram e CNPJ em `src/components/layout/Footer.js`.
 
 ## 🐶 Sobre a ONG
 
-A **SOS Pet Banabuiú** atua desde 2018 e já mudou a vida de mais de 500 animais em situação de rua.
+A **SOS Pet Banabuiú** atua desde 2013 e já mudou a vida de mais de 500 animais em situação de rua.
 
 > Proteger, cuidar e dar novas oportunidades a animais que precisam de ajuda.
 

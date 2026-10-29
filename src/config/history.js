@@ -70,7 +70,7 @@ export const HISTORY_TIMELINE = [
       'Por meio do Castramóvel e de outras parcerias, uma das primeiras grandes ações castrou cerca de 150 cães e gatos, incluindo uns 15 animais de rua. Recentemente, mais cerca de 10 animais de rua foram castrados, e já fizemos cerca de 3 ações de encoleiramento.',
     image: images.historiaCastracao,
     alt: 'Mutirão de castração com o Castramóvel',
-    facts: ['~150 castrados em mutirão', '~3 ações de encoleiramento'],
+    facts: ['~ 150 castrados em mutirão/particular', '~ 3 ações de encoleiramento'],
     link: { label: 'Ver as ações', url: LINKS.instagramCastracao },
   },
   {
@@ -79,15 +79,15 @@ export const HISTORY_TIMELINE = [
     title: 'As rotas seguem todos os dias',
     text:
       'Alcançamos aproximadamente 100 animais de rua e comunitários com suplementação alimentar, e buscamos apoio para castrações, tratamentos, medicamentos e antiparasitários.',
-    facts: ['~100 animais nas rotas', '~5 atendimentos por mês'],
+    facts: ['~ 100 animais nas rotas', '~ 5 atendimentos veterinários por mês'],
+    link: { label: 'Ver as ações', url: LINKS.instagramRotas },
   },
 ];
 
 export const HISTORY_NOTE =
   'Esses cerca de 100 animais não estão sob guarda do SOS: são os que alcançamos nas rotas. Sem sede e sem verba mensal fixa, conseguimos fazer em média cinco atendimentos individuais por mês, entre castrações, tratamentos e outras necessidades.';
 
-export const HISTORY_PEOPLE = ['Inelsa Lopes', 'Ieline Carneiro', 'Rayane', 'Larissa'];
-export const HISTORY_PARTNERS = ['Vereador Romário'];
+export const HISTORY_PEOPLE = ['Inelsa Lopes', 'Ieline Carneiro', 'Rayanne Almeida', 'Larissa Caetano', 'Romário Lima'];
 
 export const HISTORY_CLOSING =
   'O SOS continua fazendo o que é possível, dentro das suas limitações, para cuidar, alimentar, resgatar, castrar, conscientizar e buscar uma vida mais digna para os animais que precisam de ajuda.';
@@ -96,6 +96,6 @@ export const HISTORY_FULL = [
   'Além das castrações, os resgates também fazem parte dessa história. Já salvamos inúmeros animais e ajudamos em situações graves, inclusive casos de TVT, erliquiose e cinomose. Também realizamos campanhas de conscientização sobre maus-tratos, proteção animal e guarda responsável.',
   'Ao longo dos anos, construímos uma rede de voluntários e parceiros. Entre eles estão os meninos da EDMIA, além de outras pessoas que contribuíram e continuam contribuindo de diferentes formas. O SOS também busca constantemente parcerias para trazer ações de proteção animal para o município.',
   'Nosso maior objetivo continua sendo ampliar as ações de castração e trabalhar na prevenção. Acreditamos que o controle da população animal é fundamental para reduzir o abandono e o sofrimento.',
-  'Essa história não foi passageira. O trabalho voluntário passou a fazer parte da vida de quem começou essa caminhada. Inelsa, Ieline, Rayane e tantas outras pessoas que passaram pelo SOS deixaram e continuam deixando sua contribuição.',
+  'Essa história não foi passageira. O trabalho voluntário passou a fazer parte da vida de quem começou essa caminhada. Inelsa, Ieline, Rayanne, Larissa e tantas outras pessoas que passaram pelo SOS deixaram e continuam deixando sua contribuição.',
   'Nada começa do zero. Houve a inspiração de Ieline, o amor que Aisha despertou, a união de voluntários e parceiros e, principalmente, a percepção de que cada animal importa.',
 ];
