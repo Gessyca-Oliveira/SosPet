@@ -87,7 +87,7 @@ export const HISTORY_NOTE =
   'Esses cerca de 100 animais não estão sob guarda do SOS: são os que alcançamos nas rotas. Sem sede e sem verba mensal fixa, conseguimos fazer em média cinco atendimentos individuais por mês, entre castrações, tratamentos e outras necessidades.';
 
 export const HISTORY_PEOPLE = ['Inelsa Lopes', 'Ieline Carneiro', 'Rayane', 'Larissa'];
-export const HISTORY_PARTNERS = ['EDMIA', 'Castramóvel', 'Vereador Romário'];
+export const HISTORY_PARTNERS = ['Vereador Romário'];
 
 export const HISTORY_CLOSING =
   'O SOS continua fazendo o que é possível, dentro das suas limitações, para cuidar, alimentar, resgatar, castrar, conscientizar e buscar uma vida mais digna para os animais que precisam de ajuda.';

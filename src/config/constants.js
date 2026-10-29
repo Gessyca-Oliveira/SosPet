@@ -15,9 +15,9 @@ export const NAV_ITEMS = [
 export const MARQUEE_WORDS = ['Alimentação', 'Resgate', 'Castração', 'Tratamento', 'Conscientização'];
 
 export const STATS = [
-  { id: 'rotas', value: '~100', label: 'Animais alcançados nas rotas', highlight: true },
-  { id: 'castracoes', value: '~150', label: 'Castrados em mutirão' },
-  { id: 'atendimentos', value: '~5', label: 'Atendimentos por mês' },
+  { id: 'rotas', value: '100', label: 'Animais alcançados nas rotas', highlight: true },
+  { id: 'castracoes', value: '150', label: 'Castrados em mutirão' },
+  { id: 'atendimentos', value: '5', label: 'Atendimentos por mês' },
   { id: 'rotas-desde', value: '2019', label: 'Rotas diárias desde' },
 ];
 
