@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { colors, DISPLAY } from '../../theme';
+import { colors, DISPLAY, BODY_MEDIUM, BODY_SEMIBOLD } from '../../theme';
 import { NAV_ITEMS } from '../../config/constants';
 
 export default function Header({ onNavigate }) {
@@ -10,11 +10,11 @@ export default function Header({ onNavigate }) {
         <Text style={styles.logo}>SOS</Text>
         <View style={styles.row}>
           {NAV_ITEMS.map((item) => (
-            <Pressable key={item.key} onPress={() => onNavigate(item.key)} hitSlop={6}>
+            <Pressable key={item.key} onPress={() => onNavigate(item.key)} hitSlop={8} accessibilityRole="link">
               <Text style={styles.link}>{item.label}</Text>
             </Pressable>
           ))}
-          <Pressable style={styles.cta} onPress={() => onNavigate('doar')}>
+          <Pressable style={styles.cta} onPress={() => onNavigate('doar')} accessibilityRole="button">
             <Text style={styles.ctaText}>🐾 Quero doar</Text>
           </Pressable>
         </View>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: colors.white,
     borderRadius: 999,
-    paddingHorizontal: 14,
+    paddingHorizontal: 16,
     paddingVertical: 8,
     elevation: 3,
     shadowColor: '#000',
@@ -39,9 +39,9 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 2 },
   },
-  logo: { fontFamily: DISPLAY, fontWeight: '900', fontSize: 20, color: colors.red, letterSpacing: 1 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  link: { fontSize: 12, color: colors.dark, fontWeight: '500' },
-  cta: { backgroundColor: colors.red, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 7 },
-  ctaText: { color: colors.white, fontSize: 11, fontWeight: '700' },
+  logo: { fontFamily: DISPLAY, fontSize: 26, color: colors.red, letterSpacing: 1 },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 14 },
+  link: { fontFamily: BODY_MEDIUM, fontSize: 14, color: colors.dark },
+  cta: { backgroundColor: colors.red, borderRadius: 999, paddingHorizontal: 14, paddingVertical: 9 },
+  ctaText: { fontFamily: BODY_SEMIBOLD, color: colors.white, fontSize: 13 },
 });

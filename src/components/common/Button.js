@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
-import { colors } from '../../theme';
+import { colors, BODY_SEMIBOLD } from '../../theme';
 
 // variant: 'primary' (vermelho) | 'ghost' (contorno)
 export default function Button({ title, onPress, variant = 'primary', style }) {
@@ -8,7 +8,13 @@ export default function Button({ title, onPress, variant = 'primary', style }) {
   return (
     <Pressable
       onPress={onPress}
-      style={[styles.base, isPrimary ? styles.primary : styles.ghost, style]}
+      accessibilityRole="button"
+      style={({ pressed }) => [
+        styles.base,
+        isPrimary ? styles.primary : styles.ghost,
+        pressed && styles.pressed,
+        style,
+      ]}
     >
       <Text style={[styles.text, isPrimary ? styles.textPrimary : styles.textGhost]}>{title}</Text>
     </Pressable>
@@ -16,10 +22,11 @@ export default function Button({ title, onPress, variant = 'primary', style }) {
 }
 
 const styles = StyleSheet.create({
-  base: { borderRadius: 999, paddingHorizontal: 18, paddingVertical: 12 },
+  base: { borderRadius: 999, paddingHorizontal: 20, paddingVertical: 12, minHeight: 46, justifyContent: 'center' },
   primary: { backgroundColor: colors.red },
   ghost: { borderWidth: 1.5, borderColor: colors.dark, paddingVertical: 11 },
-  text: { fontSize: 13 },
-  textPrimary: { color: colors.white, fontWeight: '700' },
-  textGhost: { color: colors.dark, fontWeight: '600' },
+  pressed: { opacity: 0.75 },
+  text: { fontFamily: BODY_SEMIBOLD, fontSize: 15 },
+  textPrimary: { color: colors.white },
+  textGhost: { color: colors.dark },
 });
