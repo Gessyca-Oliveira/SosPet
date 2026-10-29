@@ -3,6 +3,8 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
+    "@expo-google-fonts/chau-philomene-one": "^0.4.1",
+    "@expo-google-fonts/lexend": "^0.4.1",
     "@expo/ui": "~57.0.24",
     "expo": "~57.0.29",
     "expo-clipboard": "~57.0.2",
