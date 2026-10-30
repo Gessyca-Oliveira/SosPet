@@ -30,6 +30,7 @@ export default function About() {
           <Photo
             source={images.equipe}
             style={[styles.polaroidImg, isDesktop && styles.polaroidImgDesktop]}
+            autoHeight
             emoji="👨‍👩‍👧"
             bg={colors.photoBg}
             alt="Equipe de voluntárias da SOS Pet"
@@ -81,8 +82,8 @@ const styles = StyleSheet.create({
   polaroidWrapDesktop: { flex: 1, marginBottom: 0 },
   polaroidBack: { position: 'absolute', top: 0, bottom: 0, left: '6%', right: '6%', backgroundColor: colors.brown, borderRadius: 24, transform: [{ rotate: '-4deg' }] },
   polaroid: { backgroundColor: colors.white, padding: 10, paddingBottom: 28, transform: [{ rotate: '3deg' }], elevation: 4, shadowColor: '#000', shadowOpacity: 0.2, shadowRadius: 10 },
-  polaroidImg: { width: 240, height: 200 },
-  polaroidImgDesktop: { width: 400, height: 340 },
+  polaroidImg: { width: 240, },
+  polaroidImgDesktop: { width: 400, height: 440 },
   caption: { fontFamily: DISPLAY_ITALIC, fontSize: 15, marginTop: 8, color: colors.brown, textAlign: 'center' },
 
   row: { flexDirection: 'row', gap: 12, marginTop: 24 },

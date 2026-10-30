@@ -60,7 +60,13 @@ function TimelineItem({ item, isLast }) {
         <Text style={styles.tlText}>{item.text}</Text>
 
         {item.image !== undefined && (
-          <Photo source={item.image} style={styles.tlImage} emoji="📷" bg={colors.photoBg} alt={item.alt} />
+          <Photo 
+            source={item.image} 
+            style={styles.tlImage} 
+            autoHeight
+            emoji="📷" 
+            bg={colors.photoBg} 
+            alt={item.alt} />
         )}
 
         {item.facts && (
@@ -119,7 +125,8 @@ export default function History() {
         <View style={styles.origin}>
           <Photo
             source={HISTORY_ORIGIN.image}
-            style={[styles.originImg, isDesktop && { height: 280 }]}
+            style={styles.originImg}
+            autoHeight
             emoji="👭"
             bg={colors.photoBg}
             alt={HISTORY_ORIGIN.alt}
@@ -129,10 +136,15 @@ export default function History() {
         </View>
 
         <View style={styles.quoteCard}>
-          <View style={styles.quoteHead}>
-            <Photo source={HISTORY_QUOTE.image} style={styles.aisha} emoji="🐶" bg={colors.cream} alt={HISTORY_QUOTE.alt} />
-            <Text style={styles.quoteContext}>{HISTORY_QUOTE.context}</Text>
-          </View>
+          <Photo
+            source={HISTORY_QUOTE.image}
+            style={styles.aisha}
+            autoHeight
+            emoji="🐶"
+            bg={colors.cream}
+            alt={HISTORY_QUOTE.alt}
+          />
+          <Text style={styles.quoteContext}>{HISTORY_QUOTE.context}</Text>
           <Text style={[styles.quote, isDesktop && { fontSize: 32, lineHeight: 38 }]}>“{HISTORY_QUOTE.quote}”</Text>
         </View>
 
@@ -197,14 +209,12 @@ const styles = StyleSheet.create({
   colRight: { flex: 1.1, paddingTop: 12 },
 
   origin: { marginTop: 22, backgroundColor: colors.white, borderRadius: 20, padding: 12 },
-  originImg: { width: '100%', height: 200, borderRadius: 14 },
+  originImg: { width: '100%', borderRadius: 14 },
   originCaption: { fontFamily: DISPLAY_ITALIC, fontSize: 16, color: colors.brown, marginTop: 10, marginHorizontal: 4 },
   originText: { fontFamily: BODY, fontSize: 15, lineHeight: 23, color: colors.text, marginTop: 6, marginHorizontal: 4, marginBottom: 4 },
-
+  aisha: { width: '100%', maxWidth: 300, alignSelf: 'center', borderRadius: 16, borderWidth: 4, borderColor: colors.white, marginBottom: 16 },
   quoteCard: { marginTop: 18, backgroundColor: colors.orange, borderRadius: 24, padding: 20, ...hardShadow },
-  quoteHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  aisha: { width: 56, height: 56, borderRadius: 28, borderWidth: 3, borderColor: colors.white },
-  quoteContext: { flex: 1, fontFamily: BODY_MEDIUM, fontSize: 14, lineHeight: 20, color: colors.dark },
+  quoteContext: { fontFamily: BODY_MEDIUM, fontSize: 14, lineHeight: 20, color: colors.dark },
   quote: { fontFamily: DISPLAY, fontSize: 26, lineHeight: 31, color: colors.dark, marginTop: 14 },
 
   timeline: { marginTop: 32 },
@@ -216,7 +226,7 @@ const styles = StyleSheet.create({
   tlLabel: { fontFamily: DISPLAY, fontSize: 30, lineHeight: 32, color: colors.brown },
   tlTitle: { fontFamily: BODY_SEMIBOLD, fontSize: 17, lineHeight: 23, color: colors.dark, marginTop: 4 },
   tlText: { fontFamily: BODY, fontSize: 15, lineHeight: 23, color: colors.text, marginTop: 6 },
-  tlImage: { width: '100%', height: 170, borderRadius: 14, marginTop: 12 },
+  tlImage: { width: '100%', maxWidth: 440, borderRadius: 14, marginTop: 12 },
 
   facts: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 12 },
   fact: { backgroundColor: colors.dark, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 6 },
