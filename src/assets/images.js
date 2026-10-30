@@ -4,19 +4,19 @@
   Enquanto for null, o componente <Photo> mostra um placeholder.
 */
 export const images = {
-  hero: null,
-  equipe: null,
-  acao1: null,
-  acao2: null,
+  hero: require('./fotos/pretinha.jpeg'),
+  equipe: require('./fotos/colaboradores.jpeg'),
+  acao1: require('./fotos/doacoes.jpeg'),
+  acao2: require('./fotos/pretinha.jpeg'),
   acao3: null,
   mascote: null,
   avatar1: null,
   avatar2: null,
   avatar3: null,
   qrcode: null,
-  historiaFundadoras: null, // Inelsa e Ieline
-  aisha: null, // foto da Aisha
+  historiaFundadoras: require('./fotos/inelsa-ieline.jpeg'),
+  aisha: require('./fotos/aisha.jpeg'),
   historiaLares: null, // garagem / casas das voluntárias
-  historiaRotas: null, // rota de alimentação
-  historiaCastracao: null, // mutirão do Castramóvel
+  historiaRotas: require('./fotos/rota.jpeg'),
+  historiaCastracao: require('./fotos/acoes-1.jpeg'),
 };

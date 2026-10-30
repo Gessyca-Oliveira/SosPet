@@ -122,7 +122,7 @@ Escaneie o QR Code do terminal com o Expo Go (Android) ou com a câmera (iOS).
 Edite `src/config/constants.js`:
 
 ```js
-export const PIX_KEY = 'sua-chave-pix-aqui';
+export const PIX_KEY = 'chave-pix';
 ```
 
 ### Imagens
