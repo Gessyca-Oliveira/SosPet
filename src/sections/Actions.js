@@ -1,11 +1,10 @@
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, BODY } from '../theme';
 import { images } from '../assets/images';
 import Photo from '../components/common/Photo';
-import Section from '../components/layout/Section';
 import { Eyebrow, Heading } from '../components/common/Typography';
+import Section from '../components/layout/Section';
 import useBreakpoint from '../hooks/useBreakpoint';
+import { BODY, colors } from '../theme';
 
 const ACTIONS = [
   { id: 'comida', image: images.acao1, emoji: '🍲', bg: colors.cream, color: colors.brown, alt: 'Comedouro em rota de alimentação', text: 'Garante ração nas rotas de alimentação, que percorrem a cidade todos os dias.' },
@@ -46,7 +45,8 @@ export default function Actions() {
           >
             <Photo
               source={a.image}
-              style={[styles.image, isDesktop && styles.imageDesktop]}
+              style={[styles.image]}
+              autoHeight
               emoji={a.emoji}
               bg={colors.photoBg}
               alt={a.alt}
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   listRow: { flexDirection: 'row', alignItems: 'flex-start' },
   card: { borderRadius: 24, padding: 12, paddingBottom: 20, alignItems: 'center' },
   cardRow: { flex: 1 },
-  image: { width: '100%', height: 200, borderRadius: 16 },
+  image: { width: '100%', minHeight: 440, borderRadius: 16 },
   imageDesktop: { height: 280 },
   text: { fontFamily: BODY, fontSize: 16, textAlign: 'center', lineHeight: 24, marginTop: 14, paddingHorizontal: 10 },
 });
